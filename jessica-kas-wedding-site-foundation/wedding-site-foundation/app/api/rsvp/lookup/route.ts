@@ -24,7 +24,15 @@ export async function POST(request: Request) {
       primary_guest_id: guest.id,
       guests: guests.map(g => ({ ...g, is_primary: g.id === guest.id }))
     });
-  } catch {
-    return NextResponse.json({ error: "RSVP service is not configured yet. Please try again later." }, { status: 503 });
-  }
+
+} catch (error) {
+  console.error("RSVP LOOKUP ERROR:", error);
+
+  return NextResponse.json(
+    {
+      error:
+        "We couldn't process your RSVP lookup. Please try again later."
+    },
+    { status: 500 }
+  );
 }
