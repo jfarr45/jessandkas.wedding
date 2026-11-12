@@ -1,0 +1,4 @@
+import { PageIntro } from "@/components/page-intro";
+export default function DressCodePage() {
+  return <div className="content-page"><PageIntro eyebrow="WHAT TO WEAR" title="Dress Code">We want you to feel comfortable, confident, and ready to celebrate.</PageIntro><section className="info-card centered"><span className="eyebrow">ATTIRE</span><h2>Dressy casual</h2><p>We’ll add the final attire guidance here, including any outdoor or footwear notes, once the details are confirmed.</p><div className="swatches"><i/><i/><i/><i/><i/></div><p className="small-note">Color palette inspiration · final guidance coming soon</p></section><section className="note-panel"><h3>A little note</h3><p>Please dress for the weather and choose shoes that you’ll be comfortable wearing throughout the celebration.</p></section></div>;
+}

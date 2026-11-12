@@ -1,0 +1,5 @@
+import { PageIntro } from "@/components/page-intro";
+const address = "2723 Twp Rd 71, Haviland, OH 45851";
+export default function TravelPage() {
+  return <div className="content-page"><PageIntro eyebrow="GETTING HERE" title="Travel">We’re looking forward to welcoming you to Haviland, Ohio.</PageIntro><section className="info-card"><span className="eyebrow">WEDDING LOCATION</span><h2>Haviland, Ohio</h2><p>{address}</p><a className="text-link" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`} target="_blank" rel="noreferrer">Open directions in Google Maps ↗</a></section><div className="two-cards"><section className="note-panel"><h3>Where to stay</h3><p>Hotel recommendations and room-block information will be added here.</p></section><section className="note-panel"><h3>Getting around</h3><p>Transportation, parking, and arrival details will be shared closer to the wedding.</p></section></div></div>;
+}
