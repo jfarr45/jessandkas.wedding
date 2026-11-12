@@ -1,122 +1,161 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap");
+
+/* ==========================================
+   1. COLOR PALETTE & FONTS
+   ========================================== */
 
 :root {
-  --terracotta: #b7654b;
-  --terracotta-dark: #914a38;
-  --cream: #f8f2e9;
-  --paper: #fffdf9;
-  --rose: #c99591;
-  --sage: #929b80;
-  --brown: #49352d;
-  --muted: #82736b;
-  --line: #e8ddd1;
-  --serif: 'Playfair Display', Georgia, serif;
-  --sans: 'DM Sans', Arial, sans-serif;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; color: var(--brown); background: var(--paper); font-family: var(--sans); line-height: 1.65; }
-a { color: inherit; text-decoration: none; }
-button, input, textarea { font: inherit; }
-.site-header { min-height: 88px; padding: 16px clamp(20px, 5vw, 76px); display: flex; align-items: center; justify-content: space-between; gap: 28px; background: var(--paper); border-bottom: 1px solid var(--line); position: relative; z-index: 5; }
-.brand { display: flex; flex-direction: column; line-height: 1.1; flex-shrink: 0; }
-.brand-script { font: 600 27px var(--serif); color: var(--terracotta-dark); }
-.brand-script i { color: var(--sage); font-weight: 500; }
-.brand-date { margin-top: 7px; font-size: 9px; letter-spacing: .2em; color: var(--muted); }
-.navigation { display: flex; align-items: center; gap: clamp(12px, 2vw, 27px); }
-.navigation a { font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: #67564d; transition: color .2s; }
-.navigation a:hover { color: var(--terracotta); }
-.menu-toggle { display: none; border: 0; background: none; padding: 8px; }
-.menu-toggle span { display: block; width: 24px; height: 2px; margin: 5px; background: var(--brown); }
-.hero { min-height: 610px; padding: 56px 20px; display: grid; place-items: center; position: relative; overflow: hidden; background-color: var(--cream); background-image: radial-gradient(circle at 10% 20%, #ead9c8 0 2px, transparent 3px), radial-gradient(circle at 90% 80%, #d9b7a5 0 2px, transparent 3px); background-size: 38px 38px, 46px 46px; }
-.hero:before, .hero:after { content: "✿  ✳  ❀  ✳  ✿"; position: absolute; color: var(--terracotta); opacity: .45; font-size: 28px; letter-spacing: 18px; writing-mode: vertical-rl; top: 15%; bottom: 15%; }
-.hero:before { left: 3%; }.hero:after { right: 3%; }
-.hero-paper { width: min(680px, 88vw); padding: 58px 30px 52px; text-align: center; background: rgba(255,253,249,.94); border: 1px solid #d9b9a6; outline: 1px solid rgba(183,101,75,.3); outline-offset: 8px; box-shadow: 0 18px 60px rgba(73,53,45,.08); }
-.hero-kicker, .eyebrow { display: block; font-size: 10px; letter-spacing: .22em; font-weight: 700; color: var(--terracotta); }
-.hero-ornament { margin: 17px 0 0; font-size: 29px; color: var(--sage); }
-.hero h1 { margin: 3px 0 0; font: 500 clamp(52px, 8vw, 88px)/1.08 var(--serif); color: var(--brown); }
-.hero h1 em { color: var(--terracotta); font-weight: 500; }
-.hero-subtitle { margin: 16px 0 20px; font-size: 11px; letter-spacing: .3em; }
-.hero-rule { display: flex; align-items: center; justify-content: center; gap: 12px; color: var(--terracotta); }
-.hero-rule:before, .hero-rule:after { content: ""; width: 70px; height: 1px; background: #d7b5a2; }
-.hero-date { margin: 15px 0 0; font: 600 17px var(--serif); letter-spacing: .12em; }
-.hero-place { margin: 4px 0 24px; color: var(--muted); font-size: 14px; }
-.hero-side-note { position: absolute; right: 22px; bottom: 20px; font-size: 8px; letter-spacing: .18em; writing-mode: vertical-rl; color: var(--terracotta-dark); }
-.button { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: 12px 26px; border: 1px solid var(--terracotta); font-size: 10px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; cursor: pointer; transition: .2s; }
-.button-primary { background: var(--terracotta); color: white; }
-.button-primary:hover { background: var(--terracotta-dark); border-color: var(--terracotta-dark); }
-.button:disabled { opacity: .6; cursor: wait; }
-.section-wrap { max-width: 1020px; margin: auto; padding: 92px 24px; text-align: center; }
-.section-wrap h2, .page-intro h1 { margin: 12px 0 17px; font: 500 clamp(36px, 5vw, 52px)/1.2 var(--serif); }
-.welcome > p:not(.eyebrow) { max-width: 650px; margin: auto; color: var(--muted); font-size: 15px; }
-.ornament-divider { margin: 34px 0; color: var(--terracotta); letter-spacing: .4em; }
-.home-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-.home-details > div { padding: 26px 18px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.home-details h3 { margin: 10px 0 4px; font: 500 23px var(--serif); }
-.home-details p { margin: 0; color: var(--muted); font-size: 13px; }
-.terracotta-band { padding: 54px 20px; text-align: center; background: var(--terracotta); color: white; }
-.terracotta-band p { font-size: 9px; letter-spacing: .25em; }
-.terracotta-band h2 { margin: 5px; font: 500 42px var(--serif); }
-.terracotta-band span { font-size: 13px; letter-spacing: .2em; }
-.content-page { width: min(100% - 40px, 900px); margin: auto; padding: 72px 0 100px; min-height: 65vh; }
-.page-intro { max-width: 680px; margin: 0 auto 48px; text-align: center; }
-.page-intro h1 { color: var(--brown); }
-.page-intro p { margin: 0; color: var(--muted); }
-.info-card { padding: 38px; margin: 25px 0; border: 1px solid var(--line); background: var(--cream); }
-.info-card h2, .empty-feature h2 { font: 500 30px var(--serif); margin: 8px 0; }
-.info-card p { color: var(--muted); }
-.centered { text-align: center; }
-.swatches { display: flex; justify-content: center; gap: 12px; margin: 25px 0 10px; }
-.swatches i { width: 34px; height: 34px; border-radius: 50%; background: var(--terracotta); }.swatches i:nth-child(2){background:var(--rose)}.swatches i:nth-child(3){background:var(--sage)}.swatches i:nth-child(4){background:#d7b99b}.swatches i:nth-child(5){background:#49352d}
-.small-note { text-align: center; color: var(--muted); font-size: 11px; margin-top: 24px; }
-.note-panel { padding: 28px; background: #f4ece3; margin: 20px 0; }
-.note-panel h3 { font: 500 23px var(--serif); margin: 0 0 8px; }.note-panel p { margin: 0; color: var(--muted); font-size: 14px; }
-.two-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.text-link { display: inline-block; color: var(--terracotta-dark); font-weight: 700; font-size: 12px; border-bottom: 1px solid currentColor; padding-bottom: 3px; }
-.empty-feature { padding: 55px 25px; background: var(--cream); text-align: center; border: 1px solid var(--line); }
-.empty-feature p { max-width: 520px; margin: auto; color: var(--muted); }
-.feature-flower { color: var(--terracotta); font-size: 30px; }
-.qa-list { border-top: 1px solid var(--line); }
-.qa-item { border-bottom: 1px solid var(--line); padding: 0 4px; }
-.qa-item summary { list-style: none; cursor: pointer; padding: 21px 5px; display: flex; justify-content: space-between; gap: 20px; font: 500 19px var(--serif); }
-.qa-item summary::-webkit-details-marker { display: none; }.qa-item summary span { color: var(--terracotta); font: 400 22px var(--sans); }
-.qa-item p { margin: -4px 35px 22px 5px; color: var(--muted); font-size: 14px; }
-.photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-.photo-placeholder { min-height: 280px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fffaf4; background: linear-gradient(145deg, #c99591, #8d7565); position: relative; }
-.photo-placeholder:after { content: "✿"; position: absolute; font-size: 100px; opacity: .18; }
-.photo-placeholder span, .photo-placeholder p { z-index: 1; }.photo-placeholder span { font-size: 9px; letter-spacing: .25em; }.photo-placeholder p { font: 24px var(--serif); }.photo-2 { background: linear-gradient(145deg,#a1a58d,#65725f); }.photo-3 { background: linear-gradient(145deg,#d2ad91,#a86b54); }.photo-4 { background: linear-gradient(145deg,#8d7467,#57483f); }
-.rsvp-page { max-width: 650px; }
-.rsvp-card { padding: clamp(22px, 5vw, 42px); border: 1px solid var(--line); background: var(--cream); display: flex; flex-direction: column; gap: 20px; }
-.rsvp-card label:not(.choice) { display: flex; flex-direction: column; gap: 7px; font-size: 12px; font-weight: 700; color: var(--brown); }
-.rsvp-card input:not([type=radio]):not([type=checkbox]), .rsvp-card textarea { width: 100%; border: 1px solid #ddcfc1; background: var(--paper); color: var(--brown); padding: 12px 13px; outline-color: var(--terracotta); font-size: 14px; }
-.rsvp-card textarea { resize: vertical; }
-.rsvp-card fieldset { border: 0; border-top: 1px solid #ddcfc1; padding: 18px 0 0; margin: 0; }
-.rsvp-card legend { padding: 0 10px 0 0; font: 500 21px var(--serif); }
-.choice { display: flex; align-items: center; gap: 10px; margin: 11px 0; font-size: 14px; cursor: pointer; }
-.choice input { accent-color: var(--terracotta); width: 16px; height: 16px; }
-.field-help { color: var(--muted); font-size: 12px; margin: 0; }
-.matched-note { text-align: center; padding-bottom: 5px; }.matched-note h2 { font: 500 30px var(--serif); margin: 5px; }.matched-note p { margin: 0; color: var(--muted); font-size: 13px; }
-.full-button { width: 100%; }.text-button { border: 0; background: none; color: var(--terracotta-dark); text-decoration: underline; cursor: pointer; font-size: 12px; }
-.form-message { text-align: center; padding: 12px; font-size: 13px; }.error { color: #9b3028; background: #fae9e6; }.success { color: #356b4b; background: #e8f3e9; }
-.site-footer { padding: 45px 20px; text-align: center; background: var(--brown); color: var(--cream); }
-.footer-flourish { color: #d69a7e; font-size: 20px; }.site-footer p { margin: 8px 0; font: italic 20px var(--serif); }.site-footer strong { display: block; margin-top: 18px; font-size: 10px; letter-spacing: .25em; }.site-footer small { font-size: 9px; letter-spacing: .2em; color: #d7b9a7; }
-@media (max-width: 1050px) { .site-header { flex-wrap: wrap; }.menu-toggle { display: block; }.navigation { display: none; width: 100%; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 0 12px; }.navigation-open { display: flex; }.navigation a { padding: 12px 4px; border-top: 1px solid var(--line); } }
-@media (max-width: 650px) {
-  .site-header { min-height: 74px; padding: 12px 20px; }.brand-script { font-size: 24px; }
-  .hero { min-height: 560px; padding: 48px 22px; }.hero-paper { padding: 48px 17px 40px; width: 88vw; }.hero:before { left: 1%; font-size: 18px; }.hero:after { right: 1%; font-size: 18px; }.hero-side-note { display: none; }
-  .section-wrap { padding: 65px 22px; }.home-details { grid-template-columns: 1fr; gap: 0; }.home-details > div { padding: 22px 12px; }
-  .content-page { width: min(100% - 36px, 900px); padding: 55px 0 70px; }.page-intro { margin-bottom: 34px; }
-  .two-cards { grid-template-columns: 1fr; gap: 0; }.photo-grid { grid-template-columns: 1fr; }.photo-placeholder { min-height: 240px; }
-  .info-card { padding: 25px 20px; }.terracotta-band { padding: 43px 18px; }
+  --terracotta: #B7654B;
+  --terracotta-dark: #914A38;
+  --cream: #F8F2E9;
+  --paper: #FFFDF9;
+  --rose: #C99591;
+  --sage: #929B80;
+  --brown: #49352D;
+  --muted: #82736B;
+  --line: #E8DDD1;
+
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "DM Sans", Arial, sans-serif;
 }
 
+/* ==========================================
+   2. GLOBAL STYLING
+   ========================================== */
 
-/* =====================================
-   RESPONSIVE PAPEL PICADO BACKGROUND
-   ===================================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  background-color: #F8F2E9;
+  margin: 0;
+  min-height: 100vh;
+  color: var(--brown);
+  background-color: var(--cream);
+  font-family: var(--sans);
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================
+   3. HEADER & NAVIGATION
+   ========================================== */
+
+.site-header {
+  min-height: 88px;
+  padding: 16px clamp(20px, 5vw, 76px);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+
+  position: relative;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  line-height: 1.1;
+}
+
+.brand-script {
+  font: 600 27px var(--serif);
+  color: var(--terracotta-dark);
+}
+
+.brand-script i {
+  color: var(--sage);
+  font-weight: 500;
+}
+
+.brand-date {
+  margin-top: 7px;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2vw, 27px);
+}
+
+.navigation a {
+  font-size: 11px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #67564D;
+  transition: color 0.2s ease;
+}
+
+.navigation a:hover {
+  color: var(--terracotta);
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  padding: 8px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 5px 0;
+  background: var(--brown);
+}
+
+/* ==========================================
+   4. HOMEPAGE HERO - PAPEL PICADO
+   ========================================== */
+
+.hero {
+  position: relative;
+
+  min-height: 650px;
+  padding: 155px 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background-color: var(--cream);
+
   background-image:
     url("/papel-picado-top.webp"),
     url("/papel-picado-bottom.webp");
@@ -130,51 +169,878 @@ body {
     repeat-x;
 
   background-size:
-    auto 160px,
-    auto 160px;
-
-  min-height: 100vh;
+    auto 155px,
+    auto 155px;
 }
 
-/* Main content */
-main {
+/* Remove old decorative side flowers */
+
+.hero::before,
+.hero::after {
+  display: none;
+  content: none;
+}
+
+/* Main invitation content */
+
+.hero-paper {
+  width: 100%;
+  max-width: 800px;
+
+  padding: 35px 20px;
+  text-align: center;
+
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+
   position: relative;
   z-index: 1;
 }
 
-/* Allow the decorative background to show */
+.hero-kicker,
+.eyebrow {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  color: var(--terracotta);
+}
+
+.hero-ornament {
+  margin: 17px 0 0;
+  font-size: 29px;
+  color: var(--terracotta);
+}
+
+/* Couple names */
+
+.hero h1 {
+  margin: 3px 0 0;
+
+  font-family: var(--serif);
+  font-size: clamp(48px, 7vw, 90px);
+  font-weight: 500;
+  line-height: 1.15;
+
+  color: var(--brown);
+}
+
+.hero h1 em {
+  color: var(--terracotta);
+  font-weight: 500;
+}
+
+/* Wedding details */
+
+.hero-subtitle {
+  margin: 16px 0 20px;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+}
+
+.hero-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  color: var(--terracotta);
+}
+
+.hero-rule::before,
+.hero-rule::after {
+  content: "";
+  width: 70px;
+  height: 1px;
+  background: #D7B5A2;
+}
+
+.hero-date {
+  margin: 15px 0 0;
+  font: 600 17px var(--serif);
+  letter-spacing: 0.12em;
+}
+
+.hero-place {
+  margin: 4px 0 24px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Remove old side text */
+
+.hero-side-note {
+  display: none;
+}
+
+/* ==========================================
+   5. BUTTONS
+   ========================================== */
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 48px;
+  padding: 12px 26px;
+
+  border: 1px solid var(--terracotta);
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.button-primary {
+  background: var(--terracotta);
+  color: #FFFFFF;
+}
+
+.button-primary:hover {
+  background: var(--terracotta-dark);
+  border-color: var(--terracotta-dark);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+/* ==========================================
+   6. HOMEPAGE WELCOME SECTION
+   ========================================== */
+
+.section-wrap {
+  max-width: 1020px;
+  margin: auto;
+  padding: 92px 24px;
+  text-align: center;
+}
+
+.section-wrap h2,
+.page-intro h1 {
+  margin: 12px 0 17px;
+
+  font-family: var(--serif);
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.welcome > p:not(.eyebrow) {
+  max-width: 650px;
+  margin: auto;
+
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.ornament-divider {
+  margin: 34px 0;
+  color: var(--terracotta);
+  letter-spacing: 0.4em;
+}
+
+.home-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.home-details > div {
+  padding: 26px 18px;
+
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.home-details h3 {
+  margin: 10px 0 4px;
+  font: 500 23px var(--serif);
+}
+
+.home-details p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ==========================================
+   7. SAVE THE DATE BAND
+   ========================================== */
+
+.terracotta-band {
+  padding: 54px 20px;
+  text-align: center;
+
+  background: var(--terracotta);
+  color: #FFFFFF;
+}
+
+.terracotta-band p {
+  font-size: 9px;
+  letter-spacing: 0.25em;
+}
+
+.terracotta-band h2 {
+  margin: 5px;
+  font: 500 42px var(--serif);
+}
+
+.terracotta-band span {
+  font-size: 13px;
+  letter-spacing: 0.2em;
+}
+
+/* ==========================================
+   8. INNER PAGE LAYOUTS
+   ========================================== */
+
 .content-page {
+  width: min(100% - 40px, 900px);
+  margin: auto;
+
+  padding: 72px 0 100px;
+  min-height: 65vh;
+
   background: transparent;
 }
 
-/* Desktop */
-@media (min-width: 1024px) {
-  body {
-    background-size:
-      auto 180px,
-      auto 180px;
+.page-intro {
+  max-width: 680px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.page-intro h1 {
+  color: var(--brown);
+}
+
+.page-intro p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ==========================================
+   9. CONTENT CARDS
+   ========================================== */
+
+.info-card {
+  padding: 38px;
+  margin: 25px 0;
+
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.info-card h2,
+.empty-feature h2 {
+  font: 500 30px var(--serif);
+  margin: 8px 0;
+}
+
+.info-card p {
+  color: var(--muted);
+}
+
+.centered {
+  text-align: center;
+}
+
+.note-panel {
+  padding: 28px;
+  margin: 20px 0;
+  background: #F4ECE3;
+}
+
+.note-panel h3 {
+  font: 500 23px var(--serif);
+  margin: 0 0 8px;
+}
+
+.note-panel p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.two-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.text-link {
+  display: inline-block;
+  padding-bottom: 3px;
+
+  color: var(--terracotta-dark);
+  font-size: 12px;
+  font-weight: 700;
+
+  border-bottom: 1px solid currentColor;
+}
+
+.small-note {
+  margin-top: 24px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* ==========================================
+   10. DRESS CODE COLOR SWATCHES
+   ========================================== */
+
+.swatches {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 25px 0 10px;
+}
+
+.swatches i {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--terracotta);
+}
+
+.swatches i:nth-child(2) {
+  background: var(--rose);
+}
+
+.swatches i:nth-child(3) {
+  background: var(--sage);
+}
+
+.swatches i:nth-child(4) {
+  background: #D7B99B;
+}
+
+.swatches i:nth-child(5) {
+  background: var(--brown);
+}
+
+/* ==========================================
+   11. Q&A ACCORDION
+   ========================================== */
+
+.qa-list {
+  border-top: 1px solid var(--line);
+}
+
+.qa-item {
+  border-bottom: 1px solid var(--line);
+  padding: 0 4px;
+}
+
+.qa-item summary {
+  list-style: none;
+  cursor: pointer;
+
+  padding: 21px 5px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  font: 500 19px var(--serif);
+}
+
+.qa-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.qa-item summary span {
+  color: var(--terracotta);
+  font: 400 22px var(--sans);
+}
+
+.qa-item p {
+  margin: -4px 35px 22px 5px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ==========================================
+   12. PHOTO GALLERY
+   ========================================== */
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.photo-placeholder {
+  min-height: 280px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: #FFFAF4;
+  background: linear-gradient(145deg, #C99591, #8D7565);
+
+  position: relative;
+}
+
+.photo-placeholder::after {
+  content: "✿";
+  position: absolute;
+  font-size: 100px;
+  opacity: 0.18;
+}
+
+.photo-placeholder span,
+.photo-placeholder p {
+  z-index: 1;
+}
+
+.photo-placeholder span {
+  font-size: 9px;
+  letter-spacing: 0.25em;
+}
+
+.photo-placeholder p {
+  font: 24px var(--serif);
+}
+
+.photo-2 {
+  background: linear-gradient(145deg, #A1A58D, #65725F);
+}
+
+.photo-3 {
+  background: linear-gradient(145deg, #D2AD91, #A86B54);
+}
+
+.photo-4 {
+  background: linear-gradient(145deg, #8D7467, #57483F);
+}
+
+/* ==========================================
+   13. EMPTY CONTENT SECTIONS
+   ========================================== */
+
+.empty-feature {
+  padding: 55px 25px;
+
+  background: var(--paper);
+  text-align: center;
+
+  border: 1px solid var(--line);
+}
+
+.empty-feature p {
+  max-width: 520px;
+  margin: auto;
+  color: var(--muted);
+}
+
+.feature-flower {
+  color: var(--terracotta);
+  font-size: 30px;
+}
+
+/* ==========================================
+   14. RSVP PAGE
+   ========================================== */
+
+.rsvp-page {
+  max-width: 650px;
+}
+
+.rsvp-card {
+  padding: clamp(22px, 5vw, 42px);
+
+  border: 1px solid var(--line);
+  background: var(--paper);
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rsvp-card label:not(.choice) {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--brown);
+}
+
+.rsvp-card input:not([type="radio"]):not([type="checkbox"]),
+.rsvp-card textarea {
+  width: 100%;
+
+  border: 1px solid #DDCFC1;
+  background: #FFFFFF;
+  color: var(--brown);
+
+  padding: 12px 13px;
+
+  outline-color: var(--terracotta);
+  font-size: 14px;
+}
+
+.rsvp-card textarea {
+  resize: vertical;
+}
+
+.rsvp-card fieldset {
+  border: 0;
+  border-top: 1px solid #DDCFC1;
+
+  padding: 18px 0 0;
+  margin: 0;
+}
+
+.rsvp-card legend {
+  padding: 0 10px 0 0;
+  font: 500 21px var(--serif);
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 11px 0;
+
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.choice input {
+  accent-color: var(--terracotta);
+  width: 16px;
+  height: 16px;
+}
+
+.field-help {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0;
+}
+
+.matched-note {
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.matched-note h2 {
+  font: 500 30px var(--serif);
+  margin: 5px;
+}
+
+.matched-note p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.full-button {
+  width: 100%;
+}
+
+.text-button {
+  border: 0;
+  background: transparent;
+
+  color: var(--terracotta-dark);
+  text-decoration: underline;
+
+  font-size: 12px;
+}
+
+.form-message {
+  text-align: center;
+  padding: 12px;
+  font-size: 13px;
+}
+
+.error {
+  color: #9B3028;
+  background: #FAE9E6;
+}
+
+.success {
+  color: #356B4B;
+  background: #E8F3E9;
+}
+
+/* ==========================================
+   15. ADMIN DASHBOARD
+   ========================================== */
+
+.admin-summary {
+  text-align: center;
+}
+
+.admin-summary h2 {
+  font: 500 28px var(--serif);
+  margin: 10px 0;
+}
+
+.admin-summary p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.admin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-row {
+  padding: 20px;
+  background: var(--cream);
+  border: 1px solid var(--line);
+}
+
+.admin-row strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 19px;
+}
+
+.admin-row small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.admin-row p {
+  margin: 8px 0;
+  font-size: 13px;
+}
+
+/* ==========================================
+   16. FOOTER
+   ========================================== */
+
+.site-footer {
+  padding: 45px 20px;
+
+  text-align: center;
+
+  background: var(--brown);
+  color: var(--cream);
+}
+
+.footer-flourish {
+  color: #D69A7E;
+  font-size: 20px;
+}
+
+.site-footer p {
+  margin: 8px 0;
+  font: italic 20px var(--serif);
+}
+
+.site-footer strong {
+  display: block;
+  margin-top: 18px;
+
+  font-size: 10px;
+  letter-spacing: 0.25em;
+}
+
+.site-footer small {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: #D7B9A7;
+}
+
+/* ==========================================
+   17. TABLET & COLLAPSIBLE NAVIGATION
+   ========================================== */
+
+@media (max-width: 1050px) {
+  .site-header {
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navigation {
+    display: none;
+    width: 100%;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 0;
+    padding: 8px 0 12px;
+  }
+
+  .navigation-open {
+    display: flex;
+  }
+
+  .navigation a {
+    padding: 12px 4px;
+    border-top: 1px solid var(--line);
   }
 }
 
-/* Tablet */
+/* ==========================================
+   18. TABLET RESPONSIVENESS
+   ========================================== */
+
 @media (min-width: 768px) and (max-width: 1023px) {
-  body {
-    background-size:
-      auto 135px,
-      auto 135px;
-  }
-}
+  .hero {
+    min-height: 620px;
+    padding: 130px 25px;
 
-/* Mobile */
-@media (max-width: 767px) {
-  body {
     background-size:
-      auto 90px,
-      auto 90px;
+      auto 115px,
+      auto 115px;
+  }
+
+  .hero h1 {
+    font-size: clamp(50px, 7vw, 76px);
   }
 
   .content-page {
-    padding-top: 110px;
-    padding-bottom: 110px;
+    width: min(100% - 60px, 900px);
+  }
+}
+
+/* ==========================================
+   19. MOBILE RESPONSIVENESS
+   ========================================== */
+
+@media (max-width: 767px) {
+  .site-header {
+    min-height: 74px;
+    padding: 12px 20px;
+  }
+
+  .brand-script {
+    font-size: 24px;
+  }
+
+  /* Mobile papel picado homepage */
+
+  .hero {
+    min-height: 600px;
+    padding: 120px 20px;
+
+    background-size:
+      auto 85px,
+      auto 85px;
+  }
+
+  .hero-paper {
+    padding: 25px 10px;
+  }
+
+  .hero h1 {
+    font-size: clamp(40px, 10vw, 60px);
+  }
+
+  .hero-kicker {
+    font-size: 9px;
+  }
+
+  .hero-subtitle {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+  }
+
+  .hero-date {
+    font-size: 15px;
+  }
+
+  /* Homepage details */
+
+  .section-wrap {
+    padding: 65px 22px;
+  }
+
+  .home-details {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .home-details > div {
+    padding: 22px 12px;
+  }
+
+  /* Inner pages */
+
+  .content-page {
+    width: min(100% - 36px, 900px);
+    padding: 55px 0 70px;
+  }
+
+  .page-intro {
+    margin-bottom: 34px;
+  }
+
+  .two-cards {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-placeholder {
+    min-height: 240px;
+  }
+
+  .info-card {
+    padding: 25px 20px;
+  }
+
+  .terracotta-band {
+    padding: 43px 18px;
+  }
+
+  .rsvp-card {
+    padding: 24px 20px;
+  }
+
+  .qa-item summary {
+    font-size: 17px;
+  }
+}
+
+/* ==========================================
+   20. ACCESSIBILITY
+   ========================================== */
+
+:focus-visible {
+  outline: 2px solid var(--terracotta-dark);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }
