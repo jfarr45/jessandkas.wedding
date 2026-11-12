@@ -12,10 +12,17 @@ export async function POST(request: Request) {
     if (responses.some((r: any) => typeof r.guestId !== "string" || typeof r.attending !== "boolean")) {
       return NextResponse.json({ error: "One or more guest responses are invalid." }, { status: 400 });
     }
-    const session = typeof accessToken === "string" ? verifyToken(accessToken, "rsvp") : null;
-    if (!session || session.invitationId !== invitationId || !Array.isArray(session.guestIds) ||
-        !session.guestIds.includes(primaryGuestId) || responses.some((r: any) => !session.guestIds.includes(r.guestId))) {
-      return NextResponse.json({ error: "Your invitation session expired or could not be verified. Please look up your invitation again." }, { status: 403 });
+    const session = typeof accessToken === "string"
+      ? verifyToken(accessToken, "rsvp")
+      : null;
+    
+    if (!session || session.invitationId !== invitationId ||
+        !Array.isArray(session.guestIds) ||
+        !session.guestIds.includes(primaryGuestId) ||
+        responses.some((r: any) => !session.guestIds.includes(r.guestId))) {
+      return NextResponse.json({
+        error: "Your invitation session expired or could not be verified. Please look up your invitation again."
+      }, { status: 403 });
     }
     const db = supabaseAdmin();
     const { data: invited, error: invitedError } = await db.from("invited_guests")
