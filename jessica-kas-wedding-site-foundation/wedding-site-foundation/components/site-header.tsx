@@ -13,7 +13,7 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <Link className="brand" href="/" onClick={() => setOpen(false)}>
-        <span className="brand-script">Jessica <i>&</i> Kas</span>
+        <span className="brand-script">Jess <i>&</i> Kas</span>
         <span className="brand-date">OCTOBER 9, 2027 · OHIO</span>
       </Link>
       <button className="menu-toggle" aria-expanded={open} aria-label="Toggle navigation" onClick={() => setOpen(!open)}>
