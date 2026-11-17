@@ -4,8 +4,8 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Jessica & Kas | October 9, 2027",
-  description: "Wedding details, travel information, and RSVP for Jessica & Kas.",
+  title: "Jess & Kas | October 9, 2027",
+  description: "Wedding details, travel information, and RSVP for Jess & Kas.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
