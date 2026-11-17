@@ -7,7 +7,7 @@ export default function HomePage() {
         <div className="hero-paper">
           <span className="hero-kicker">HAPPILY EVER AFTER STARTS WITH A REALLY GOOD PARTY</span>
           <div className="hero-ornament" aria-hidden="true">✿</div>
-          <h1>Jessica <em>&</em> Kas</h1>
+          <h1>Jess <em>&</em> Kas</h1>
           <p className="hero-subtitle">ARE GETTING MARRIED</p>
           <div className="hero-rule"><span>✳</span></div>
           <p className="hero-date">OCTOBER 9, 2027</p>
