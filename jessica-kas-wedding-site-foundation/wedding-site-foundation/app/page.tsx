@@ -5,16 +5,16 @@ export default function HomePage() {
     <>
       <section className="hero">
         <div className="hero-paper">
-          <span className="hero-kicker">TOGETHER WITH OUR FAMILIES</span>
+          <span className="hero-kicker">HAPPILY EVER AFTER STARTS WITH A REALLY GOOD PARTY</span>
           <div className="hero-ornament" aria-hidden="true">✿</div>
           <h1>Jessica <em>&</em> Kas</h1>
           <p className="hero-subtitle">ARE GETTING MARRIED</p>
           <div className="hero-rule"><span>✳</span></div>
           <p className="hero-date">OCTOBER 9, 2027</p>
           <p className="hero-place">Haviland, Ohio</p>
-          <Link className="button button-primary" href="/rsvp">Kindly RSVP</Link>
+          <Link className="button button-primary" href="/rsvp">Please RSVP</Link>
         </div>
-        <div className="hero-side-note">A DAY FULL OF LOVE, LAUGHTER & A LITTLE MAGIC</div>
+        <div className="hero-side-note">A DAY FULL OF LOVE, LAUGHTER & A LITTLE WHIMSY</div>
       </section>
       <section className="welcome section-wrap">
         <span className="eyebrow">WE’RE SO GLAD YOU’RE HERE</span>
